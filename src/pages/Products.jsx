@@ -1,16 +1,8 @@
 import MasterLayout from "../layout/MasterLayout";
 import { useState, useEffect } from "react";
-import Select from "react-select";
 import { useProducts } from "../context/Products";
 export default function Products() {
   const { search, setSearch } = useProducts();
-
-  const options = [
-    { value: "priceAsc", label: "Low to High" },
-    { value: "priceDesc", label: "High to Low" },
-    { value: "dateAsc", label: "Newest" },
-    { value: "dateDesc", label: "Oldest" },
-  ];
   return (
     <MasterLayout>
       {/*search bar*/}

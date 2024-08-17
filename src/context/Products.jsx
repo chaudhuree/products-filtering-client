@@ -6,7 +6,7 @@ export default function ProductsProvider({ children }) {
   const [search, setSearch] = useState("");
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
-  const [sort, setSort] = useState("priceAsc");
+  const [sort, setSort] = useState("");
   const [priceRange, setPriceRange] = useState([0, 4]);
 
   // all variables and functions that you want to share with the rest of the application should be placed in the context

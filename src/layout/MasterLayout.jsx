@@ -1,6 +1,19 @@
 import Nav from "../components/Nav";
+import Select from "react-select";
+import { useProducts } from "../context/Products";
+import { IoCloseSharp } from "react-icons/io5";
+
 import { RxHamburgerMenu } from "react-icons/rx";
 export default function MasterLayout({ children }) {
+  const { sort, setSort } = useProducts();
+  console.log("sort", sort);
+
+  const sortOptions = [
+    { value: "priceAsc", label: "Low to High" },
+    { value: "priceDesc", label: "High to Low" },
+    { value: "dateAsc", label: "Newest" },
+    { value: "dateDesc", label: "Oldest" },
+  ];
   return (
     <div>
       <Nav />
@@ -16,26 +29,24 @@ export default function MasterLayout({ children }) {
             className="drawer-overlay"
           ></label>
 
-          <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+          <div className=" bg-base-200 text-base-content min-h-full w-80 p-4">
             {/* Sidebar content here */}
-            <li>
-              <a>Sidebar Item 1</a>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
-            <li>
-              <div className="drawer-content flex flex-col items-center justify-center">
-                {/* Page content here */}
-                <label
-                  htmlFor="my-drawer-2"
-                  className=" drawer-button lg:hidden flex justify-center items-center text-xl"
-                >
-                  <RxHamburgerMenu />
-                </label>
-              </div>
-            </li>
-          </ul>
+            <div className="flex justify-between items-center ">
+              <h1 className="text-2xl font-bold">Filters</h1>
+              <label htmlFor="my-drawer-2" className="drawer-button">
+                <IoCloseSharp className="text-2xl sm:hidden" />
+              </label>
+            </div>
+            <div className="mt-6 flex flex-col gap-2">
+              <h2 className="text-lg font-semibold">Sort</h2>
+
+              <Select
+                defaultValue={sortOptions[0]}
+                onChange={setSort}
+                options={sortOptions}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
