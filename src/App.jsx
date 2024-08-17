@@ -1,7 +1,8 @@
-import React from 'react'
-
+import Products from "./pages/Products";
 export default function App() {
   return (
-    <h1>chaudhuree</h1>
-  )
+    <>
+      <Products />
+    </>
+  );
 }
