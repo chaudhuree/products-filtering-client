@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { useProducts } from "../context/Products";
 export default function Products() {
   const { search, setSearch } = useProducts();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearch(e.target[0].value); 
+  }
   return (
     <MasterLayout>
       {/*search bar*/}
@@ -13,7 +17,7 @@ export default function Products() {
         >
           Search
         </label>
-        <div className="relative">
+        <form className="relative" onSubmit={handleSearch}>
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
               className="w-4 h-4 text-gray-500 dark:text-gray-400"
@@ -34,7 +38,6 @@ export default function Products() {
           <input
             type="search"
             id="default-search"
-            onChange={(e) => setSearch(e.target.value)}
             className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search Milk, Bread, Eggs, etc.."
             required
@@ -45,7 +48,7 @@ export default function Products() {
           >
             Search
           </button>
-        </div>
+        </form>
       </div>
       <p>{search}</p>
     </MasterLayout>

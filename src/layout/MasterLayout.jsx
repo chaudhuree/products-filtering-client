@@ -5,7 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 export default function MasterLayout({ children }) {
-  const { setSort, setCategory, setBrand, setPriceRange } = useProducts();
+  const { setSort, setCategory, setBrand, setPriceRange,setSearch } = useProducts();
 
   const sortOptions = [
     { value: "priceAsc", label: "Low to High" },
@@ -47,6 +47,10 @@ export default function MasterLayout({ children }) {
     { value: "GreenLeaf", label: "GreenLeaf" },
     { value: "ColorFresh", label: "ColorFresh" },
   ];
+
+  const clearFilter = () => {
+    window.location.reload();
+  }
   return (
     <div>
       <Nav />
@@ -74,21 +78,21 @@ export default function MasterLayout({ children }) {
             <div className="mt-6 flex flex-col gap-2">
               <h2 className="text-lg font-semibold">Price Range</h2>
               <div className="px-5">
-              <Slider
-                min={0}
-                max={4}
-                step={1}
-                range
-                dot
-                marks={{
-                  0: "0",
-                  1: "1",
-                  2: "2",
-                  3: "3",
-                  4: "4",
-                }}
-                onChange={(value) => setPriceRange(value)}
-              />
+                <Slider
+                  min={0}
+                  max={20}
+                  step={5}
+                  range
+                  dot
+                  marks={{
+                    0: "0",
+                    5: "5",
+                    10: "10",
+                    15: "15",
+                    20: "20",
+                  }}
+                  onChange={(value) => setPriceRange(value)}
+                />
               </div>
             </div>
             <div className="mt-8 flex flex-col gap-2">
@@ -96,7 +100,7 @@ export default function MasterLayout({ children }) {
 
               <Select
                 defaultValue={sortOptions[0]}
-                onChange={setSort}
+                onChange={(option) => setSort(option.value)}
                 options={sortOptions}
               />
             </div>
@@ -106,7 +110,7 @@ export default function MasterLayout({ children }) {
 
               <Select
                 defaultValue={categoryOptions[0]}
-                onChange={setCategory}
+                onChange={(option) => setCategory(option.value)}
                 options={categoryOptions}
               />
             </div>
@@ -115,9 +119,18 @@ export default function MasterLayout({ children }) {
 
               <Select
                 defaultValue={brandOptions[0]}
-                onChange={setBrand}
+                onChange={(option) => setBrand(option.value)}
                 options={brandOptions}
               />
+            </div>
+
+            <div className="mt-6 flex items-center justify-between flex-wrap">
+              <button onClick={clearFilter} className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+                Clear Filter
+              </button>
+              <button className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                Logout
+              </button>
             </div>
           </div>
         </div>
