@@ -3,7 +3,7 @@ export default function Nav() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="text-2xl font-bold">Pashei</a>
+        <a className="text-4xl max-md:text-3xl max-sm:text-2xl font-bold">Pashei</a>
       </div>
       <div className="flex-none ">
         <div className="menu menu-horizontal px-1 flex items-center gap-3">

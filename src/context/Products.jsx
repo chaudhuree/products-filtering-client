@@ -9,25 +9,37 @@ export default function ProductsProvider({ children }) {
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
   const [priceRange, setPriceRange] = useState([0, 20]);
+  const [currentPage, setCurrentPage] = useState(1)
 
   
 
   // call fetchProducts when the component mounts
   useEffect(() => {
-    fetch(`http://localhost:3000/api/v1/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${page}&priceRange=${priceRange[0]}-${priceRange[1]}`)
+    setLoading(true);
+    fetch(`http://localhost:3000/api/v1/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${currentPage}&priceRange=${priceRange[0]}-${priceRange[1]}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
+        setTotalPages(data.total)
+      }).finally(() => {
+        setLoading(false);
       });
-      console.log('products', products);
       
 
-  }, [search, brand, category, sort, page, priceRange]);
+  }, [search, brand, category, sort, currentPage, priceRange]);
 
-  console.log("products", products);
+
+  // pagination related codes
+
+  // calculate page number
+  const numberOfPages = Math.ceil(totalPages / 6)
+  const pages = [...Array(numberOfPages).keys()].map(element => element + 1)
+  //  handle pagination button
+  const handlePaginationButton = value => {
+    setCurrentPage(value)
+  }
 
   // all variables and functions that you want to share with the rest of the application should be placed in the context
   const contextValue = {
@@ -43,9 +55,11 @@ export default function ProductsProvider({ children }) {
     setSort,
     priceRange,
     setPriceRange,
-    page,
-    setPage,
     totalPages,
+    handlePaginationButton,
+    pages,
+    currentPage,
+    numberOfPages
   };
   // console.log('contextValue', contextValue);
 

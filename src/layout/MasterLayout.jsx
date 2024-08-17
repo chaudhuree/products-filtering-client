@@ -5,7 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 export default function MasterLayout({ children }) {
-  const { setSort, setCategory, setBrand, setPriceRange,setSearch } = useProducts();
+  const { setSort, setCategory, setBrand, setPriceRange,setSearch,loading } = useProducts();
 
   const sortOptions = [
     { value: "priceAsc", label: "Low to High" },
@@ -22,7 +22,7 @@ export default function MasterLayout({ children }) {
   ];
 
   const brandOptions = [
-    { value: "DairyFarm", label: "DairyFarm" },
+    { value: "DairyFresh", label: "DairyFresh" },
     { value: "GreenValley", label: "GreenValley" },
     { value: "CheeseMaster", label: "CheeseMaster" },
     { value: "FreshChoice", label: "FreshChoice" },
@@ -51,6 +51,9 @@ export default function MasterLayout({ children }) {
   const clearFilter = () => {
     window.location.reload();
   }
+  // if(loading){
+  //   return <h1>Loading...</h1>
+  // }
   return (
     <div>
       <Nav />
