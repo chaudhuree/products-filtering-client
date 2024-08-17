@@ -27,7 +27,7 @@ export default function Products() {
         <title>Products</title>
       </Helmet>
       {loading ? (
-        <Spinner />
+        <div className=" min-h-screen w-full flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
       ) : (
         <>
           {/*search bar*/}

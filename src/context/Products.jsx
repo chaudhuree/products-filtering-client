@@ -19,6 +19,7 @@ export default function ProductsProvider({ children }) {
   // call fetchProducts when the component mounts
   useEffect(() => {
     setLoading(true);
+    setSearch("");
     setCurrentPage(1);
     fetch(`${productionUrl}/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${currentPage}&priceRange=${priceRange[0]}-${priceRange[1]}`)
       .then((res) => res.json())
