@@ -73,6 +73,7 @@ export default function MasterLayout({ children }) {
 
             <div className="mt-6 flex flex-col gap-2">
               <h2 className="text-lg font-semibold">Price Range</h2>
+              <div className="px-5">
               <Slider
                 min={0}
                 max={4}
@@ -88,6 +89,7 @@ export default function MasterLayout({ children }) {
                 }}
                 onChange={(value) => setPriceRange(value)}
               />
+              </div>
             </div>
             <div className="mt-8 flex flex-col gap-2">
               <h2 className="text-lg font-semibold">Sort</h2>
