@@ -2,9 +2,10 @@ import Nav from "../components/Nav";
 import Select from "react-select";
 import { useProducts } from "../context/Products";
 import { IoCloseSharp } from "react-icons/io5";
-
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 export default function MasterLayout({ children }) {
-  const { setSort, setCategory, setBrand } = useProducts();
+  const { setSort, setCategory, setBrand, setPriceRange } = useProducts();
 
   const sortOptions = [
     { value: "priceAsc", label: "Low to High" },
@@ -69,7 +70,26 @@ export default function MasterLayout({ children }) {
                 <IoCloseSharp className="text-2xl sm:hidden" />
               </label>
             </div>
+
             <div className="mt-6 flex flex-col gap-2">
+              <h2 className="text-lg font-semibold">Price Range</h2>
+              <Slider
+                min={0}
+                max={4}
+                step={1}
+                range
+                dot
+                marks={{
+                  0: "0",
+                  1: "1",
+                  2: "2",
+                  3: "3",
+                  4: "4",
+                }}
+                onChange={(value) => setPriceRange(value)}
+              />
+            </div>
+            <div className="mt-8 flex flex-col gap-2">
               <h2 className="text-lg font-semibold">Sort</h2>
 
               <Select

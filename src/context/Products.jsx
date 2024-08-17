@@ -24,7 +24,7 @@ export default function ProductsProvider({ children }) {
     priceRange,
     setPriceRange,
   };
-console.log('contextValue', contextValue);
+// console.log('contextValue', contextValue);
 
   return (
     <ProductsContext.Provider value={contextValue}>
