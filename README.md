@@ -4,6 +4,8 @@
 
 ### This project is built using React, Tailwind CSS. For Backend I used Node.js, Express.js, and MongoDB. You can find the backend code [here](https://github.com/chaudhuree/products-filtering-server)
 
+### This website also have authentication system using Firebase. You can sign up, login, and logout from the website.
+
 ## To run this project locally:
 
 ```bash
