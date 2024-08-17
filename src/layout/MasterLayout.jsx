@@ -3,10 +3,8 @@ import Select from "react-select";
 import { useProducts } from "../context/Products";
 import { IoCloseSharp } from "react-icons/io5";
 
-import { RxHamburgerMenu } from "react-icons/rx";
 export default function MasterLayout({ children }) {
-  const { sort, setSort } = useProducts();
-  console.log("sort", sort);
+  const { setSort, setCategory, setBrand } = useProducts();
 
   const sortOptions = [
     { value: "priceAsc", label: "Low to High" },
@@ -16,10 +14,10 @@ export default function MasterLayout({ children }) {
   ];
 
   const categoryOptions = [
-    { value: "dairy", label: "Dairy" },
-    { value: "pantry", label: "Pantry" },
-    { value: "non-veg", label: "Non-Veg" },
-    { value: "veg", label: "Veg" },
+    { value: "Dairy", label: "Dairy" },
+    { value: "Pantry", label: "Pantry" },
+    { value: "Nonveg", label: "Non-Veg" },
+    { value: "Veg", label: "Veg" },
   ];
 
   const brandOptions = [
@@ -78,6 +76,25 @@ export default function MasterLayout({ children }) {
                 defaultValue={sortOptions[0]}
                 onChange={setSort}
                 options={sortOptions}
+              />
+            </div>
+
+            <div className="mt-6 flex flex-col gap-2">
+              <h2 className="text-lg font-semibold">Category</h2>
+
+              <Select
+                defaultValue={categoryOptions[0]}
+                onChange={setCategory}
+                options={categoryOptions}
+              />
+            </div>
+            <div className="mt-6 flex flex-col gap-2">
+              <h2 className="text-lg font-semibold">Brand</h2>
+
+              <Select
+                defaultValue={brandOptions[0]}
+                onChange={setBrand}
+                options={brandOptions}
               />
             </div>
           </div>
