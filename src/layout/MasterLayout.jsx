@@ -14,6 +14,40 @@ export default function MasterLayout({ children }) {
     { value: "dateAsc", label: "Newest" },
     { value: "dateDesc", label: "Oldest" },
   ];
+
+  const categoryOptions = [
+    { value: "dairy", label: "Dairy" },
+    { value: "pantry", label: "Pantry" },
+    { value: "non-veg", label: "Non-Veg" },
+    { value: "veg", label: "Veg" },
+  ];
+
+  const brandOptions = [
+    { value: "DairyFarm", label: "DairyFarm" },
+    { value: "GreenValley", label: "GreenValley" },
+    { value: "CheeseMaster", label: "CheeseMaster" },
+    { value: "FreshChoice", label: "FreshChoice" },
+    { value: "ButterLand", label: "ButterLand" },
+    { value: "PureDairy", label: "PureDairy" },
+    { value: "YogurtValley", label: "YogurtValley" },
+    { value: "SweetTreat", label: "SweetTreat" },
+    { value: "Baker's Secret", label: "Baker's Secret" },
+    { value: "InstantMilk", label: "InstantMilk" },
+    { value: "Baker's Choice", label: "Baker's Choice" },
+    { value: "CocoFarm", label: "CocoFarm" },
+    { value: "PureGold", label: "PureGold" },
+    { value: "CreamyDelight", label: "CreamyDelight" },
+    { value: "CreamyRich", label: "CreamyRich" },
+    { value: "FarmFresh", label: "FarmFresh" },
+    { value: "SeaHarvest", label: "SeaHarvest" },
+    { value: "MeatKing", label: "MeatKing" },
+    { value: "PrimeCuts", label: "PrimeCuts" },
+    { value: "OceanBounty", label: "OceanBounty" },
+    { value: "GreenFarm", label: "GreenFarm" },
+    { value: "VeggieDelight", label: "VeggieDelight" },
+    { value: "GreenLeaf", label: "GreenLeaf" },
+    { value: "ColorFresh", label: "ColorFresh" },
+  ];
   return (
     <div>
       <Nav />
