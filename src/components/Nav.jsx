@@ -13,11 +13,8 @@ export default function Nav() {
       <div className="flex-none ">
         <div className="menu menu-horizontal px-1 flex items-center gap-3">
           {currentUser ? (
-            <div className="avatar">
-              <div className="w-10 rounded-full">
-                <img src={currentUser?.photoURL} />
-              </div>
-            </div>
+          
+            <span>{currentUser?.displayName}</span>
           ) : (
             <Link
               to="/signin"

@@ -55,11 +55,11 @@ export default function SignIn() {
   }
   if (loading) return <Spinner />;
   return (
-    <section className="container mx-auto font-poppins">
+    <section className="container mx-auto font-poppins min-h-screen">
       <Helmet>
         <title>Sign In</title>
       </Helmet>
-      <h1 className="dark:text-gray-300 text-3xl text-center mt-6 font-bold text-primary">Sign In</h1>
+      <h1 className="dark:text-gray-300 text-3xl text-center mt-6 font-bold  ml-4">Sign In</h1>
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
         <div className="w-full md:w-[67%] lg:w-[50%] lg:ml-20">
           <form onSubmit={onSubmit}>
@@ -106,17 +106,10 @@ export default function SignIn() {
                   Register
                 </Link>
               </p>
-              <p>
-                <Link
-                  to="/forgotpassword"
-                  className="text-sky-600 hover:text-sky-900 transition duration-200 ease-in-out"
-                >
-                  Forgot password?
-                </Link>
-              </p>
+        
             </div>
             <button
-              className="w-full bg-primary text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-[#403e23] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#403e23]"
+              className="w-full bg-primary text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-indigo-900 transition duration-150 ease-in-out hover:shadow-lg active:bg-[#403e23]"
               type="submit"
             >
               Sign in

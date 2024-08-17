@@ -63,7 +63,7 @@ export default function Register() {
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
-      <h1 className="dark:text-gray-300 text-3xl text-center mt-6 font-bold text-primary">Sign Up</h1>
+      <h1 className="dark:text-gray-300 text-3xl text-center mt-6 font-bold ">Sign Up</h1>
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
         <div className="w-full md:w-[67%] lg:w-[50%] lg:ml-20">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -155,17 +155,10 @@ export default function Register() {
                   Sign in
                 </Link>
               </p>
-              <p>
-                <Link
-                  to="/forgotpassword"
-                  className="text-sky-600 hover:text-sky-900 transition duration-200 ease-in-out"
-                >
-                  Forgot password?
-                </Link>
-              </p>
+     
             </div>
             <button
-              className="w-full bg-primary text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-[#403e23] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#403e23]"
+              className="w-full bg-primary text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-indigo-900 transition duration-150 ease-in-out hover:shadow-lg active:bg-[#403e23]"
               type="submit"
             >
               Sign up
