@@ -20,7 +20,7 @@ export default function ProductsProvider({ children }) {
   useEffect(() => {
     setLoading(true);
     setCurrentPage(1);
-    fetch(`${developmentUrl}/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${currentPage}&priceRange=${priceRange[0]}-${priceRange[1]}`)
+    fetch(`${productionUrl}/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${currentPage}&priceRange=${priceRange[0]}-${priceRange[1]}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

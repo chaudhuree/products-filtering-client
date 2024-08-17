@@ -1,5 +1,6 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useAuth } from "../context/AuthProvider";
+import { Link } from "react-router-dom";
 export default function Nav() {
   const { logout, currentUser } = useAuth();
   return (
@@ -18,7 +19,12 @@ export default function Nav() {
               </div>
             </div>
           ) : (
-            ""
+            <Link
+              to="/signin"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Sign In
+            </Link>
           )}
 
           <div className="drawer-content flex flex-col items-center justify-center">

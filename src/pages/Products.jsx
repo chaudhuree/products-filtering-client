@@ -2,6 +2,8 @@ import MasterLayout from "../layout/MasterLayout";
 import { useState, useEffect } from "react";
 import { useProducts } from "../context/Products";
 import Product from "../components/Product";
+import { Helmet } from "react-helmet";
+import Spinner from "../components/Spinner";
 export default function Products() {
   const {
     search,
@@ -21,8 +23,11 @@ export default function Products() {
   };
   return (
     <MasterLayout>
+      <Helmet>
+        <title>Products</title>
+      </Helmet>
       {loading ? (
-        <h1>Loading...</h1>
+        <Spinner />
       ) : (
         <>
           {/*search bar*/}
