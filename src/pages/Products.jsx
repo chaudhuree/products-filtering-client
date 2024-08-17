@@ -80,39 +80,7 @@ export default function Products() {
           </button>
         </form>
       </div>
-      {/*show search queries*/}
-      <section className="flex my-4 min-w-[75%] items-center justify-center mx-auto gap-3 flex-wrap">
-        {totalPages > 0 && (
-          <span className="px-2 py-1 rounded-md bg-slate-300 text-xs font-bold">
-            total products : {totalPages}
-          </span>
-        )}
-        {search && (
-          <span className="px-2 py-1 rounded-md bg-pink-300 text-xs font-bold">
-            {search}
-          </span>
-        )}
-        {brand && (
-          <span className="px-2 py-1 rounded-md bg-orange-300 text-xs font-bold">
-            {brand}
-          </span>
-        )}
-        {category && (
-          <span className="px-2 py-1 rounded-md bg-violet-300 text-xs font-bold">
-            {category}
-          </span>
-        )}
-        {sort && (
-          <span className="px-2 py-1 rounded-md bg-amber-300 text-xs font-bold">
-            {sortLabel}
-          </span>
-        )}
-        {price && (
-          <span className="px-2 py-1 rounded-md bg-lime-300 text-xs font-bold">
-            {price[0] + " - " + price[1]}
-          </span>
-        )}
-      </section>
+     
 
       {/*main content*/}
       {loading ? (
@@ -127,6 +95,39 @@ export default function Products() {
             <h1 className="text-3xl max-md:tex-2xl max-sm:text-xl my-3 font-bold text-center">
               Products
             </h1>
+             {/*show search queries*/}
+      <section className="flex my-4 min-w-[75%] items-center justify-center mx-auto gap-3 flex-wrap">
+      {totalPages > 0 && (
+        <span className="px-2 py-1 rounded-md bg-slate-300 text-xs font-bold">
+          total products : {totalPages}
+        </span>
+      )}
+      {search && (
+        <span className="px-2 py-1 rounded-md bg-pink-300 text-xs font-bold">
+          {search}
+        </span>
+      )}
+      {brand && (
+        <span className="px-2 py-1 rounded-md bg-orange-300 text-xs font-bold">
+          {brand}
+        </span>
+      )}
+      {category && (
+        <span className="px-2 py-1 rounded-md bg-violet-300 text-xs font-bold">
+          {category}
+        </span>
+      )}
+      {sort && (
+        <span className="px-2 py-1 rounded-md bg-amber-300 text-xs font-bold">
+          {sortLabel}
+        </span>
+      )}
+      {price && (
+        <span className="px-2 py-1 rounded-md bg-lime-300 text-xs font-bold">
+          {price[0] + " - " + price[1]}
+        </span>
+      )}
+    </section>
             <div className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-2">
               {products?.products?.map((product) => (
                 <Product key={product._id} product={product} />
