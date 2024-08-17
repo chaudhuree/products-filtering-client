@@ -1,10 +1,20 @@
 import MasterLayout from "../layout/MasterLayout";
-
+import { useState, useEffect } from "react";
+import Select from "react-select";
+import { useProducts } from "../context/Products";
 export default function Products() {
+  const { search, setSearch } = useProducts();
+
+  const options = [
+    { value: "priceAsc", label: "Low to High" },
+    { value: "priceDesc", label: "High to Low" },
+    { value: "dateAsc", label: "Newest" },
+    { value: "dateDesc", label: "Oldest" },
+  ];
   return (
     <MasterLayout>
       {/*search bar*/}
-      <form className="max-w-md mx-auto">
+      <div className="max-w-2xl mx-auto">
         <label
           for="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -32,8 +42,9 @@ export default function Products() {
           <input
             type="search"
             id="default-search"
+            onChange={(e) => setSearch(e.target.value)}
             className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search Mockups, Logos..."
+            placeholder="Search Milk, Bread, Eggs, etc.."
             required
           />
           <button
@@ -43,7 +54,8 @@ export default function Products() {
             Search
           </button>
         </div>
-      </form>
+      </div>
+      <p>{search}</p>
     </MasterLayout>
   );
 }
