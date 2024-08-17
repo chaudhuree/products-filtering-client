@@ -13,12 +13,14 @@ export default function ProductsProvider({ children }) {
   const [priceRange, setPriceRange] = useState([0, 20]);
   const [currentPage, setCurrentPage] = useState(1)
 
-  
+  const productionUrl="https://products-filtering-b798.onrender.com/api/v1"
+  const developmentUrl="http://localhost:3000/api/v1"
 
   // call fetchProducts when the component mounts
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/api/v1/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${currentPage}&priceRange=${priceRange[0]}-${priceRange[1]}`)
+    setCurrentPage(1);
+    fetch(`${developmentUrl}/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${currentPage}&priceRange=${priceRange[0]}-${priceRange[1]}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -59,6 +61,7 @@ export default function ProductsProvider({ children }) {
     handlePaginationButton,
     pages,
     currentPage,
+    setCurrentPage,
     numberOfPages
   };
   // console.log('contextValue', contextValue);
