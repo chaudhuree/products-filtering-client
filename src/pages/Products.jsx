@@ -79,7 +79,7 @@ export default function Products() {
           {/* Pagination Section starts */}
 
           {totalPages > 0 ? (
-            <div className="flex justify-center mt-12">
+            <div className="flex justify-center mt-12 mb-5">
               {/* Previous Button */}
               <button
                 disabled={currentPage === 1}

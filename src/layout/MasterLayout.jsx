@@ -4,15 +4,20 @@ import { useProducts } from "../context/Products";
 import { IoCloseSharp } from "react-icons/io5";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import Footer from "../components/Footer";
+import { useAuth } from "../context/AuthProvider";
 export default function MasterLayout({ children }) {
-  const { setSort, setCategory, setBrand, setPriceRange,setSearch,loading } = useProducts();
-
+  const { setSort, setCategory, setBrand, setPriceRange, setSearch, loading } =
+    useProducts();
+    const { logout, currentUser } = useAuth();
   const sortOptions = [
     { value: "priceAsc", label: "Low to High" },
     { value: "priceDesc", label: "High to Low" },
     { value: "dateAsc", label: "Newest" },
     { value: "dateDesc", label: "Oldest" },
   ];
+  console.log('currentUser', currentUser);
+  
 
   const categoryOptions = [
     { value: "Dairy", label: "Dairy" },
@@ -50,7 +55,7 @@ export default function MasterLayout({ children }) {
 
   const clearFilter = () => {
     window.location.reload();
-  }
+  };
   // if(loading){
   //   return <h1>Loading...</h1>
   // }
@@ -128,7 +133,10 @@ export default function MasterLayout({ children }) {
             </div>
 
             <div className="mt-6 flex items-center justify-between flex-wrap">
-              <button onClick={clearFilter} className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+              <button
+                onClick={clearFilter}
+                className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+              >
                 Clear Filter
               </button>
               <button className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
@@ -138,6 +146,7 @@ export default function MasterLayout({ children }) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
