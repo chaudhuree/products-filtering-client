@@ -14,3 +14,5 @@ cd products-filtering-client
 npm install
 npm run dev
 ```
+
+![Pashei](https://i.ibb.co/Rhn0PJh/pashei.png)
