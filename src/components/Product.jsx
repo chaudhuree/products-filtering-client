@@ -13,8 +13,8 @@ export default function Product({ product }) {
           </span>
         </p>
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
+          src={product.image}
+          alt={product.name}
           className="rounded-xl"
         />
       </figure>
@@ -31,7 +31,7 @@ export default function Product({ product }) {
         </div>
         <p className="text-2xl font-bold mt-4">Price: {product.price}$</p>
         <p className="text-xs">
-          Added on: {moment(product.updatedAt).format("MMM Do YY h:mm a")}
+          Added on: {moment(product.createdAt).format("MMM Do YY h:mm a")}
         </p>
         <div className="flex justify-end items-end ml-auto mt-2">
           <button className="text-white  bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
