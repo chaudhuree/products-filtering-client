@@ -14,6 +14,7 @@ export default function ProductsProvider({ children }) {
   const [currentPage, setCurrentPage] = useState(1)
 
   const productionUrl="https://products-filtering-b798.onrender.com/api/v1"
+  const productionUrlVercel="https://products-filtering-server.vercel.app/api/v1"
   const developmentUrl="http://localhost:3000/api/v1"
 
   // call fetchProducts when the component mounts
