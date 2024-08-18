@@ -23,8 +23,8 @@ export default function Products() {
   const sortOptions = [
     { value: "priceAsc", label: "Low to High" },
     { value: "priceDesc", label: "High to Low" },
-    { value: "dateAsc", label: "Newest" },
-    { value: "dateDesc", label: "Oldest" },
+    { value: "dateAsc", label: "Oldest" },
+    { value: "dateDesc", label: "Newest" },
   ];
   
   // Find the label based on the current sort value

@@ -19,8 +19,8 @@ export default function MasterLayout({ children }) {
   const sortOptions = [
     { value: "priceAsc", label: "Low to High" },
     { value: "priceDesc", label: "High to Low" },
-    { value: "dateAsc", label: "Newest" },
-    { value: "dateDesc", label: "Oldest" },
+    { value: "dateAsc", label: "Oldest" },
+    { value: "dateDesc", label: "Newest" },
   ];
   console.log("currentUser", currentUser);
 
