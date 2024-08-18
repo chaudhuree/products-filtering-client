@@ -14,7 +14,6 @@ export default function MasterLayout({ children }) {
     setPriceRange,
     setSearch,
     setCurrentPage,
-    
   } = useProducts();
   const { logout, currentUser } = useAuth();
   const sortOptions = [
@@ -106,7 +105,6 @@ export default function MasterLayout({ children }) {
                   }}
                   onChange={(value) => {
                     setCurrentPage(1);
-                    // setSearch("");
                     setPriceRange(value);
                   }}
                 />
@@ -119,7 +117,6 @@ export default function MasterLayout({ children }) {
                 defaultValue={sortOptions[0]}
                 onChange={(option) => {
                   setCurrentPage(1);
-                  // setSearch("");
                   setSort(option.value);
                 }}
                 options={sortOptions}
@@ -133,7 +130,6 @@ export default function MasterLayout({ children }) {
                 defaultValue={categoryOptions[0]}
                 onChange={(option) => {
                   setCurrentPage(1);
-                  // setSearch("");
                   setCategory(option.value);
                 }}
                 options={categoryOptions}
@@ -144,7 +140,10 @@ export default function MasterLayout({ children }) {
 
               <Select
                 defaultValue={brandOptions[0]}
-                onChange={(option) => setBrand(option.value)}
+                onChange={(option) => {
+                  setBrand(option.value);
+                  setCurrentPage(1);
+                }}
                 options={brandOptions}
               />
             </div>
